@@ -37,14 +37,14 @@ $http = new GuzzleHttp\Client([
 // Create an instance of the Cockpit client by passing all required data
 $client = new Remluben\CockpitClient\Client(
     $http,                                          // The HTTP client
-    'http://localhost/_projects/cockpit-core/api/', // The URL to the API of your Cockpit instance, i.e. https://url-to-cockpit.tld/api/
+    'https://url-to-cockpit.tld/api/',              // The URL to the API of your Cockpit instance, i.e. https://url-to-cockpit.tld/api/
     'API-1a45a0876a88fb3f042cc6524059a4a11bf3f163', // a static token / api-key for server-side usage, should not expire
 );
 
 $results = [];
 // Fetch your first content items, i.e. for content model *faqs*
 try {
-  $results = $client->settings('faqs');
+  $results = $client->contentItems('faqs');
 }
 catch (\Remluben\CockpitClient\Exceptions\ClientException $e) {
   // A client exception happens whenever 
