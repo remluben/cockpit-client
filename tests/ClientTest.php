@@ -9,7 +9,7 @@
 
 namespace Remluben\CockpitClient\Tests;
 
-use GuzzleHttp\Client as GuzzleHttpClient;
+use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
@@ -328,7 +328,7 @@ class ClientTest extends TestCase
     {
 
         return new Client(
-            new GuzzleHttpClient([
+            new HttpClient([
                 'handler' => HandlerStack::create($mock)
             ]),
             $url ?? 'https://www.remluben.at',
